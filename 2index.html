@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wood Art Creation | Premium Handcrafted Woodwork</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .tail-container { font-family: 'Inter', sans-serif; }
+        .heading-font { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.75)), 
+                              url('https://i.ibb.co/kVqXG27H/Whats-App-Image-2026-05-18-at-12-20-02-PM.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card {
+            transition: all 0.4s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+        }
+        
+        .gold-button {
+            background: linear-gradient(135deg, #D4AF37, #B8972E);
+            transition: all 0.3s;
+        }
+        .gold-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    </style>
+</head>
+<body class="tail-container bg-[#1A1614] text-white">
+
+    <!-- Navbar -->
+    <nav class="bg-[#1A1614] border-b border-[#3C2F2F] fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="https://i.ibb.co/KjL8nygC/Whats-App-Image-2026-05-17-at-1-46-55-PM.jpg" alt="Logo" class="h-12">
+                <div class="heading-font text-2xl text-[#D4AF37]">THE WOOD ART CREATION</div>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
+                <a href="#home" class="hover:text-[#D4AF37] transition">Home</a>
+                <a href="#about" class="hover:text-[#D4AF37] transition">About</a>
+                <a href="#products" class="hover:text-[#D4AF37] transition">Collections</a>
+                <a href="#gallery" class="hover:text-[#D4AF37] transition">Gallery</a>
+                <a href="#contact" class="hover:text-[#D4AF37] transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen hero-bg flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="heading-font text-6xl md:text-7xl leading-tight">Exquisite Handcrafted<br>Wooden Masterpieces</h1>
+            <p class="text-xl mt-6 text-white/90">10+ Years of Excellence by Vipan Kumar</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mt-12">
+                <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" 
+                        class="gold-button text-black px-8 py-4 rounded-full text-lg font-medium">View Collection</button>
+                <button onclick="window.open('https://maps.app.goo.gl/n5FVw8J1nHXDr5eN6','_blank')" 
+                        class="border border-white/70 hover:border-[#D4AF37] px-8 py-4 rounded-full text-lg font-medium">View On Google Map</button>
+                <button onclick="window.open('https://wa.me/919811403165','_blank')" 
+                        class="border border-white/70 hover:border-[#D4AF37] px-8 py-4 rounded-full text-lg font-medium">Contact on WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-[#1A1614]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="heading-font text-5xl leading-tight">Crafting Luxury Since 10+ Years</h2>
+                    <p class="mt-6 text-lg text-white/80">The Wood Art Creation, led by <strong>Vipan Kumar</strong>, specializes in premium handcrafted wooden art, CNC carving, wall decor, mandir designs, custom furniture, and luxurious interior woodwork.</p>
+                </div>
+                <img src="https://i.ibb.co/GfY7F1vy/Whats-App-Image-2026-05-18-at-12-18-15-PM.jpg" class="rounded-3xl shadow-2xl" alt="Work">
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl text-center mb-16">Our Signature Collections</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="products-grid"></div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-24 bg-[#1A1614]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl text-center mb-16">Our Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="gallery-grid"></div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us + Reviews -->
+    <section class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl text-center mb-12">Why Choose Us</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center mb-20">
+                <div class="bg-[#3C2F2F] p-8 rounded-3xl">🌟 10+ Years Experience</div>
+                <div class="bg-[#3C2F2F] p-8 rounded-3xl">🔨 CNC + Hand Craftsmanship</div>
+                <div class="bg-[#3C2F2F] p-8 rounded-3xl">✨ Premium Quality Finish</div>
+            </div>
+
+            <!-- Review Form -->
+            <div class="max-w-xl mx-auto bg-[#3C2F2F] p-10 rounded-3xl">
+                <h3 class="text-2xl text-center mb-6">Share Your Experience</h3>
+                <form id="review-form" class="space-y-6">
+                    <input id="review-name" type="text" placeholder="Your Name" class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4">
+                    <div id="star-rating" class="flex justify-center text-4xl text-white/40">★★★★★</div>
+                    <textarea id="review-text" rows="4" placeholder="Your feedback..." class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-4"></textarea>
+                    <button type="button" onclick="submitReview()" class="gold-button w-full py-4 rounded-2xl text-black font-semibold">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-[#1A1614]">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="heading-font text-5xl mb-10">Let's Create Together</h2>
+                <div class="space-y-8">
+                    <div><strong>Phone:</strong> <a href="tel:9811403165">+91 98114 03165</a> / <a href="tel:9891127083">+91 98911 27083</a></div>
+                    <div><strong>WhatsApp:</strong> Same numbers above</div>
+                    <div><strong>Email:</strong> info.woodartcreation@gmail.com</div>
+                    <div><strong>Address:</strong><br>Plot no. 17/2, Sector 106, Shastri Nagar Industrial Area,<br>Daulatabad, Gurugram, Haryana 122006</div>
+                </div>
+                <button onclick="window.open('https://maps.app.goo.gl/n5FVw8J1nHXDr5eN6','_blank')" class="mt-10 gold-button px-8 py-4 rounded-2xl">View Factory on Google Map</button>
+            </div>
+            
+            <div class="bg-[#3C2F2F] p-10 rounded-3xl">
+                <h3 class="text-2xl mb-8">Send Inquiry</h3>
+                <form id="contact-form" class="space-y-6">
+                    <input id="name" type="text" placeholder="Your Name" class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4">
+                    <input id="phone" type="tel" placeholder="Phone Number" class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-4">
+                    <textarea id="message" rows="5" placeholder="Describe your requirement..." class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-4"></textarea>
+                    <button type="button" onclick="submitInquiry()" class="gold-button w-full py-5 rounded-2xl text-lg">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 text-center">
+        <p>© 2026 The Wood Art Creation • Gurugram</p>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919811403165" target="_blank" class="floating-whatsapp bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-2xl">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="max-w-5xl w-full mx-4 bg-[#1A1614] rounded-3xl overflow-hidden">
+            <div class="p-4 flex justify-end border-b border-white/10">
+                <button onclick="closeLightbox()" class="text-4xl">×</button>
+            </div>
+            <img id="lightbox-image" class="w-full max-h-[65vh] object-contain bg-black" alt="">
+            <div class="p-8" id="lightbox-info"></div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { name: "T.V. Cabinet", price: "₹2500 per sq ft", images: ["https://i.ibb.co/QFkt6rHn/Whats-App-Image-2026-05-17-at-6-56-24-PM.jpg","https://i.ibb.co/d0pwm5MT/Whats-App-Image-2026-05-17-at-6-56-25-PM.jpg","https://i.ibb.co/Y781JBVk/Whats-App-Image-2026-05-17-at-6-56-24-PM.jpg"] },
+            { name: "Door Design", price: "₹85,000 each (Veneer Finish)", images: ["https://i.ibb.co/Xx6SVy1z/Whats-App-Image-2026-05-17-at-7-03-42-PM.jpg","https://i.ibb.co/v4BsF5xb/Whats-App-Image-2026-05-17-at-7-03-43-PM-1.jpg","https://i.ibb.co/Gv0P3Cy4/Whats-App-Image-2026-05-17-at-7-03-43-PM.jpg","https://i.ibb.co/Z1SnYdbW/Whats-App-Image-2026-05-17-at-7-01-24-PM.jpg","https://i.ibb.co/s9vFvR5v/Whats-App-Image-2026-05-18-at-12-28-45-PM.jpg"] },
+            { name: "Counter", price: "₹2500 per sq ft", images: ["https://i.ibb.co/5h9Ywt7m/Whats-App-Image-2026-05-17-at-7-01-26-PM.jpg","https://i.ibb.co/YTdsWXhB/Whats-App-Image-2026-05-17-at-7-01-25-PM.jpg"] },
+            { name: "Wardrobe / Almirah", price: "₹2200 per sq ft", images: ["https://i.ibb.co/bj1Zn113/Whats-App-Image-2026-05-17-at-7-00-00-PM.jpg","https://i.ibb.co/YFLJtCPm/Whats-App-Image-2026-05-17-at-6-59-59-PM-1.jpg","https://i.ibb.co/SDTkQgPL/Whats-App-Image-2026-05-17-at-6-59-59-PM.jpg","https://i.ibb.co/Z6Yhhgk6/Whats-App-Image-2026-05-17-at-6-56-57-PM.jpg"] },
+            { name: "Moduler Kitchen", price: "₹3000 per sq ft", images: ["https://i.ibb.co/Y7YJXTVF/Whats-App-Image-2026-05-17-at-6-59-07-PM.jpg","https://i.ibb.co/4gw2m44Q/Whats-App-Image-2026-05-17-at-6-59-07-PM.jpg","https://i.ibb.co/205K25c0/Whats-App-Image-2026-05-17-at-6-59-06-PM.jpg"] },
+            { name: "Crockery Unit", price: "₹2500 per sq ft", images: ["https://i.ibb.co/ynh0pqrG/Whats-App-Image-2026-05-17-at-6-58-17-PM.jpg","https://i.ibb.co/RT50R3R3/Whats-App-Image-2026-05-17-at-6-58-19-PM.jpg","https://i.ibb.co/mrxDhwhh/Whats-App-Image-2026-05-17-at-6-58-18-PM.jpg"] },
+            { name: "Partition", price: "₹1450 per sq ft", images: ["https://i.ibb.co/n83zbhdG/Whats-App-Image-2026-05-17-at-6-55-17-PM.jpg","https://i.ibb.co/MDF4zTdw/Whats-App-Image-2026-05-17-at-6-55-17-PM.jpg"] },
+            { name: "Temple Design", price: "Custom", images: ["https://i.ibb.co/kVqXG27H/Whats-App-Image-2026-05-18-at-12-20-02-PM.jpg"] },
+            { name: "Scenery (CNC Design)", price: "Custom", images: ["https://i.ibb.co/GfY7F1vy/Whats-App-Image-2026-05-18-at-12-18-15-PM.jpg"] }
+        ];
+
+        function populateProducts() {
+            const container = document.getElementById('products-grid');
+            container.innerHTML = '';
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "product-card bg-[#3C2F2F] rounded-3xl overflow-hidden cursor-pointer";
+                card.innerHTML = `
+                    <img src="${p.images[0]}" class="w-full h-64 object-cover" onclick="showLightbox('${p.name}')">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold">${p.name}</h3>
+                        <p class="text-[#D4AF37] mt-1">${p.price}</p>
+                        <button onclick="event.stopImmediatePropagation(); inquire('${p.name}')" 
+                                class="mt-6 w-full gold-button text-black py-4 rounded-2xl">Inquire on WhatsApp</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function populateGallery() {
+            const container = document.getElementById('gallery-grid');
+            container.innerHTML = '';
+            products.forEach(p => {
+                p.images.forEach(img => {
+                    const div = document.createElement('div');
+                    div.className = "aspect-square rounded-3xl overflow-hidden cursor-pointer";
+                    div.innerHTML = `<img src="${img}" class="w-full h-full object-cover hover:scale-110 transition" onclick="showLightbox('${p.name}')">`;
+                    container.appendChild(div);
+                });
+            });
+        }
+
+        function showLightbox(name) {
+            const product = products.find(p => p.name === name);
+            if (!product) return;
+
+            document.getElementById('lightbox-image').src = product.images[0];
+            let html = `<h2 class="text-3xl heading-font">${product.name}</h2><p class="text-[#D4AF37] text-xl">${product.price}</p>`;
+            html += `<div class="grid grid-cols-4 gap-3 mt-6">`;
+            product.images.forEach(src => {
+                html += `<img src="${src}" onclick="document.getElementById('lightbox-image').src='${src}'" class="rounded-xl cursor-pointer">`;
+            });
+            html += `</div>`;
+            html += `<button onclick="inquire('${product.name}');closeLightbox()" class="mt-8 w-full gold-button py-5 rounded-2xl text-black text-lg">Inquire on WhatsApp</button>`;
+            
+            document.getElementById('lightbox-info').innerHTML = html;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function inquire(name) {
+            const text = `Hello, I am interested in ${name}. Please share more details.`;
+            window.open(`https://wa.me/919811403165?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function submitReview() {
+            alert("Thank you! Your review has been submitted.");
+            document.getElementById('review-form').reset();
+        }
+
+        function submitInquiry() {
+            alert("Thank you! Our team will contact you soon via WhatsApp.");
+            document.getElementById('contact-form').reset();
+        }
+
+        window.onload = () => {
+            populateProducts();
+            populateGallery();
+        };
+    </script>
+</body>
+</html>
